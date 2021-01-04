@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Career_Search_Project.Areas.Admin.Models.WalkIn>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>WalkIn</h1>
+
+<p>
+    <a asp-action="Create">Add Job(s)</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FunctionalArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterviewLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FunctionalArea.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterviewLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Industry.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobType.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
